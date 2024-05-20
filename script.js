@@ -61,7 +61,7 @@ btnHold.addEventListener("click", function () {
     //1. add the current score to the active player
     scores[activePlayer] = scores[activePlayer] + currentScore;
     //2. check if score >= 100
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 50) {
       playing = false;
       dice.classList.add("hidden");
       //finish the game
@@ -84,4 +84,29 @@ btnHold.addEventListener("click", function () {
       switchPlayer();
     }
   }
+});
+
+btnNew.addEventListener("click", function () {
+  //set the playing to true
+  playing = true;
+
+  //set the total scores to 0 of both players
+  scores[0] = 0;
+  scores[1] = 0;
+  score0.textContent = 0;
+  score1.textContent = 0;
+
+  //set the current score to 0
+  currentScore = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+
+  //set the player 0 as active player
+  activePlayer = 0;
+
+  //reset the CSS
+  player0El.classList.remove("player--winner");
+  player1El.classList.remove("player--winner");
+
+  player0El.classList.add("player--active");
 });
